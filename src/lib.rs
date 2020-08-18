@@ -19,7 +19,6 @@
 #![feature(in_band_lifetimes)]
 
 use hashbrown::HashMap;
-use parking_lot;
 use std::hash::Hash;
 
 const SHARD_COUNT: usize = 128;
@@ -96,7 +95,7 @@ impl<K: Hash + Clone + Eq, V: Clone> Collection<K, (K, V)> for HashMap<K, V> {
 
 /// The sharded lock collection.
 pub struct Shard<T> {
-    shards: Vec<T>,
+    pub shards: Vec<T>,
 }
 
 impl<K: Hash> Shard<K> {
