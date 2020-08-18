@@ -20,7 +20,6 @@
 
 use hashbrown::HashMap;
 use parking_lot;
-use std::collections::hash_map::DefaultHasher;
 use std::hash::Hash;
 
 const SHARD_COUNT: usize = 128;
@@ -128,7 +127,7 @@ impl<K: Hash> Shard<K> {
 
 fn index<K: Hash>(k: &K) -> usize {
     use std::hash::Hasher;
-    let mut s = DefaultHasher::new();
+    let mut s = ahash::AHasher::default();
     k.hash(&mut s);
     (s.finish() as usize % SHARD_COUNT) as usize
 }

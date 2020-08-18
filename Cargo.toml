@@ -8,6 +8,7 @@ edition = "2018"
 [dependencies]
 parking_lot = "0.11"
 hashbrown = "0.8"
+ahash = "0.4"
 
 [dev-dependencies]
 criterion = "0.3"
