@@ -18,9 +18,9 @@
 #![feature(generic_associated_types)]
 #![feature(in_band_lifetimes)]
 
+use hashbrown::HashMap;
 use parking_lot;
 use std::collections::hash_map::DefaultHasher;
-use std::collections::HashMap;
 use std::hash::Hash;
 
 const SHARD_COUNT: usize = 128;
